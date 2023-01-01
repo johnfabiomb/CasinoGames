@@ -1,0 +1,14 @@
+<div class="lastPlayed">
+	<h1 class="lastPlayed__title">Last Played Games</h1>
+	<div class="lastPlayed-grid">
+		<ng-container *ngIf="games?.length; else empty">
+			<ng-container *ngFor="let game of games; trackBy: trackByFn">
+				<app-game-card
+					[image]="game.thumb?.url ?? ''"
+					(click)="selectGame(game)"
+				></app-game-card>
+			</ng-container>
+		</ng-container>
+		<ng-template #empty> No played games yet... </ng-template>
+	</div>
+</div>

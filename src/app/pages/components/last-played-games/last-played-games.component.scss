@@ -1,0 +1,32 @@
+.lastPlayed {
+	border-top: 2px solid rgba(128, 128, 128, 0.558);
+	margin-top: 30px;
+	&-grid {
+		margin: 0 auto;
+		display: grid;
+		grid-gap: 10px;
+		justify-items: center;
+		grid-template-areas: "app-game-card";
+	}
+
+	@media (min-width: 400px) {
+		&-grid {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+	@media (min-width: 760px) {
+		&-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1180px) {
+		&-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	@media (min-width: 1470px) {
+		&-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}

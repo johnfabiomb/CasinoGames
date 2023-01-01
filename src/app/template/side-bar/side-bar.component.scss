@@ -1,0 +1,36 @@
+.sidebar {
+	width: 130px;
+	min-height: calc(100vh - 100px);
+	height: 100%;
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
+	border-right: 2px solid rgba(128, 128, 128, 0.558);
+	&__logo {
+		padding: 20px;
+	}
+	@media (max-width: 850px) {
+		& {
+			width: 50px !important;
+		}
+		&__logo {
+			padding: 0px;
+		}
+	}
+	.navigation {
+		padding-top: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		&__item {
+			cursor: pointer;
+			color: #000000;
+			text-decoration: none;
+			font-family: "Courier New", Courier, monospace;
+			font-weight: 300;
+		}
+		.active {
+			color: red;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+<div
+	(click)="this.click.emit()"
+	class="card"
+	[style.backgroundImage]="
+		'url(' + (image ? image : 'assets/images/default.png') + ')'
+	"
+>
+	<div class="card__action"></div>
+</div>

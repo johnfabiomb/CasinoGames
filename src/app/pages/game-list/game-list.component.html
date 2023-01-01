@@ -1,0 +1,40 @@
+<div class="games">
+	<h1 class="games__title">Games</h1>
+	<h3 class="games__subtitle">Filters</h3>
+	<div class="games-header">
+		<input
+			class="games-header__search"
+			type="text"
+			placeholder=" Seach..."
+			[(ngModel)]="term"
+		/>
+
+		<ng-multiselect-dropdown
+			class="games-header__provider"
+			[settings]="dropdownSettings"
+			[placeholder]="'custom placeholder'"
+			[data]="providers"
+			[(ngModel)]="provider"
+		>
+		</ng-multiselect-dropdown>
+	</div>
+	<h3
+		*ngIf="provider.length || term"
+		class="games__filter-cleaner"
+		(click)="cleanFilter()"
+	>
+		Clean filter
+	</h3>
+	<div class="games-grid">
+		<ng-container *ngIf="games?.length; else term ? noFound : Loading">
+			<ng-container *ngFor="let game of games; trackBy: trackByFn">
+				<app-game-card
+					[image]="game.thumb?.url ?? ''"
+					(click)="selectGame(game)"
+				></app-game-card>
+			</ng-container>
+		</ng-container>
+		<ng-template #noFound> No results for '{{ term }}' </ng-template>
+		<ng-template #Loading> Loading... </ng-template>
+	</div>
+</div>

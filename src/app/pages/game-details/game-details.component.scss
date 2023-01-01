@@ -1,0 +1,34 @@
+.details {
+	&__title {
+		text-align: center;
+	}
+	&-content {
+		display: flex;
+		gap: 20px;
+		&-description {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			&__a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				height: 38px;
+				border-radius: 5px;
+				border-color: transparent;
+				cursor: pointer;
+				background-color: #e02020db;
+				color: white;
+				&:hover {
+					border-color: #000000;
+				}
+			}
+		}
+		@media (max-width: 689px) {
+			& {
+				flex-direction: column;
+			}
+		}
+	}
+}

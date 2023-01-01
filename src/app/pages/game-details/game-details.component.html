@@ -1,0 +1,21 @@
+<div class="details">
+	<h1 class="details__title">Details</h1>
+	<h2 class="details__subtitle">{{ game?.title }}</h2>
+	<div class="details-content">
+		<app-game-card
+			class="details-content__image"
+			[image]="game?.thumb?.url ?? ''"
+		></app-game-card>
+		<div class="details-content-description">
+			<div class="details-content-description__item">
+				<b>Tag:</b> {{ game?.tag ?? "-" }}
+			</div>
+			<div class="details-content-description__item">
+				<b>Provider:</b> {{ game?.providerName }}
+			</div>
+			<a class="details-content-description__a" [href]="game?.startUrl"
+				>Play for fun</a
+			>
+		</div>
+	</div>
+</div>

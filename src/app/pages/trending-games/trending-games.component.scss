@@ -1,0 +1,33 @@
+.trending {
+	&__title {
+		text-align: center;
+	}
+	&-grid {
+		margin: 0 auto;
+		display: grid;
+		grid-gap: 10px;
+		justify-items: center;
+		grid-template-areas: "app-game-card";
+	}
+
+	@media (min-width: 400px) {
+		&-grid {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+	@media (min-width: 760px) {
+		&-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1180px) {
+		&-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	@media (min-width: 1470px) {
+		&-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}

@@ -1,0 +1,45 @@
+.card {
+	display: flex;
+	border-radius: 20px;
+	flex-direction: column;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	img {
+		width: 100%;
+	}
+	@media (max-width: 700px) {
+		& {
+			width: 250px;
+			height: 250px;
+		}
+	}
+	@media (max-width: 500px) {
+		& {
+			width: 220px;
+			height: 220px;
+		}
+	}
+	@media (max-width: 400px) {
+		& {
+			width: 180px;
+			height: 180px;
+		}
+	}
+	@media (max-width: 340px) {
+		& {
+			width: 120px;
+			height: 120px;
+		}
+	}
+	@media (min-width: 501px) {
+		& {
+			width: 300px;
+			height: 300px;
+		}
+	}
+	&:hover {
+		opacity: 0.5;
+		cursor: pointer;
+	}
+}

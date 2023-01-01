@@ -1,0 +1,23 @@
+.window {
+	.header {
+		display: flex;
+		background-color: #494949;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 10px;
+		&__ball {
+			width: 30px;
+			height: 30px;
+			border-radius: 20px;
+		}
+		.ball--bg-red {
+			background-color: #e02020;
+		}
+		.ball--bg-yellow {
+			background-color: #f7b500;
+		}
+		.ball--bg-green {
+			background-color: #6dd400;
+		}
+	}
+}
