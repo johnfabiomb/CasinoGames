@@ -17,17 +17,17 @@ export default class GameDetailsComponent extends BaseComponent implements OnIni
 	/**
 	 * This property is an Observable that holds the list of games
 	 */
-	@Select(GameState.selectGames) gameList$!: Observable<any>;
+	@Select(GameState.selectGames) gameList$!: Observable<Game[]>;
 
 	/**
 	 *  This property is an Observable that holds the game selected by the 'slug' parameter in the URL
 	 */
-	@Select(GameState.selectBySlug) selectedGame$!: Observable<any>;
+	@Select(GameState.selectBySlug) selectedGame$!: Observable<Game>;
 
 	/**
 	 * This property holds the selected game
 	 */
-	game!: Game;
+	game: Game | undefined;
 
 	/**
 	 * constructor
@@ -55,7 +55,7 @@ export default class GameDetailsComponent extends BaseComponent implements OnIni
 		// When the Observables emit new values, filter the combined value to only include the data if it exists
 		this.addSafeSubscription(
 			combineLatest([this.selectedGame$, this.gameList$])
-				.pipe(filter(([game, list]) => game && list.length))
+				.pipe(filter(([game, list]) => !!game && !!list.length))
 				.subscribe({
 					next: ([game]) => {
 						// If the game exists, assign it to the 'game' property

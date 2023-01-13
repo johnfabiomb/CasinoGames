@@ -10,11 +10,14 @@ import { Observable } from "rxjs";
 	templateUrl: "./trending-games.component.html",
 	styleUrls: ["./trending-games.component.scss"],
 })
-export default class TrendingGamesComponent extends AbstractGameListComponent implements OnInit {
+export default class TrendingGamesComponent
+	extends AbstractGameListComponent
+	implements OnInit
+{
 	/**
 	 * This property is an Observable that holds the list of trending games
 	 */
-	@Select(GameState.selectTrendingGames) trendingList$!: Observable<any>;
+	@Select(GameState.selectTrendingGames) trendingList$!: Observable<Game[]>;
 
 	/**
 	 * The constructor is inherited from the AbstractGameListComponent class
@@ -30,7 +33,7 @@ export default class TrendingGamesComponent extends AbstractGameListComponent im
 		// This adds a safe subscription to the trendingList$ Observable
 		// When the Observable emits a new value, the component's 'games' property is updated
 		this.addSafeSubscription(
-			this.trendingList$.subscribe((data: Game[]) => (this.games = data))
+			this.trendingList$.subscribe((data) => (this.games = data))
 		);
 	}
 }

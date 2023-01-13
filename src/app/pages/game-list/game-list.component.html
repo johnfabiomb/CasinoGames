@@ -13,7 +13,7 @@
 			class="games-header__provider"
 			[settings]="dropdownSettings"
 			[placeholder]="'custom placeholder'"
-			[data]="providers"
+			[data]="providers ?? []"
 			[(ngModel)]="provider"
 		>
 		</ng-multiselect-dropdown>

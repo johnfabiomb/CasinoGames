@@ -5,7 +5,6 @@ import { FetchGames } from "../state/games.action";
 @Component({
 	selector: "app-pages",
 	templateUrl: "./pages.component.html",
-	styleUrls: ["./pages.component.scss"],
 })
 export default class PagesComponent implements OnInit {
 	/**

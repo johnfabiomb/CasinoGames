@@ -10,7 +10,8 @@ export default abstract class AbstractGameListComponent extends BaseComponent {
 	/**
 	 * Game list
 	 */
-	games!: Game[];
+	games: Game[] | undefined;
+
 	constructor() {
 		super();
 	}

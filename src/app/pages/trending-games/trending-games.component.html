@@ -1,7 +1,7 @@
 <div class="trending">
 	<h1 class="trending__title">Trending Games</h1>
 	<div class="trending-grid">
-		<ng-container *ngIf="games?.length; else Loading">
+		<ng-container *ngIf="games">
 			<ng-container *ngFor="let game of games; trackBy: trackByFn">
 				<app-game-card
 					[image]="game.thumb?.url ?? ''"
@@ -9,6 +9,7 @@
 				></app-game-card>
 			</ng-container>
 		</ng-container>
-		<ng-template #Loading> Loading... </ng-template>
 	</div>
+	<ng-container *ngIf="games && !games?.length"> no data </ng-container>
+	<ng-container *ngIf="!games"> Loading... </ng-container>
 </div>

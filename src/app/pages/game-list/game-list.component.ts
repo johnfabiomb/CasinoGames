@@ -1,7 +1,7 @@
+import AbstractGameListComponent from "@app/shared/core/abstracts/game-list.component";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Game, IGameFilter } from "@app/shared/client/game.model";
-import AbstractGameListComponent from "@app/shared/core/abstracts/game-list.component";
 import { Select, Store } from "@ngxs/store";
 import { IDropdownSettings } from "ng-multiselect-dropdown";
 import { Observable } from "rxjs";
@@ -14,7 +14,10 @@ import { GameState } from "../../state/games.state";
 	templateUrl: "./game-list.component.html",
 	styleUrls: ["./game-list.component.scss"],
 })
-export default class GameListComponent extends AbstractGameListComponent implements OnInit {
+export default class GameListComponent
+	extends AbstractGameListComponent
+	implements OnInit
+{
 	/**
 	 * term setter and getter
 	 */
@@ -39,25 +42,14 @@ export default class GameListComponent extends AbstractGameListComponent impleme
 	/**
 	 *  This property is an Observable that holds the list of trending games
 	 */
-	@Select(GameState.selectGames) gameList$!: Observable<any>;
+	@Select(GameState.selectGames) gameList$!: Observable<Game[]>;
+
+	@Select(GameState.selectGameProviders) gameProviders$!: Observable<string[]>;
 
 	/**
 	 * Providers options
 	 */
-	providers: string[] = [
-		"Yggdrasil",
-		"iSoftBet",
-		"Playson",
-		"Pragmatic Play",
-		"Booongo",
-		"Play'n GO",
-		"Quickspin",
-		"Betsoft",
-		"Relax Gaming",
-		"Kalamba Games",
-		"FUGA Gaming",
-		"ReelPlay",
-	];
+	providers: string[] | undefined;
 
 	/**
 	 * dropdown setting
@@ -107,7 +99,8 @@ export default class GameListComponent extends AbstractGameListComponent impleme
 			)
 			.subscribe(),
 			this.addSafeSubscription(
-				this.gameList$.subscribe((data: Game[]) => (this.games = data))
+				this.gameList$.subscribe((data) => (this.games = data)),
+				this.gameProviders$.subscribe((data) => (this.providers = data))
 			);
 	}
 	/**
@@ -129,7 +122,7 @@ export default class GameListComponent extends AbstractGameListComponent impleme
 	 */
 	navigateToFilter() {
 		// This object will hold the query parameters for the URL
-		const params: IGameFilter = {} as IGameFilter;
+		const params: Partial<IGameFilter> = {};
 
 		// If the 'provider' property is not empty, add the 'provider' query parameter to the 'params' object
 		if (this.provider.length) {

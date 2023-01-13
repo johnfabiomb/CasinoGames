@@ -10,12 +10,12 @@ import { tap } from "rxjs/operators";
 import { Injectable } from "@angular/core";
 import { GameTags } from "@app/shared/client/game.enum";
 
-export class GameStateModel {
-	gameList: Game[] = [];
-	lastPlayedGames: Game[] = [];
-	textFilter = "";
-	selectBySlug = "";
-	providerFilter: string[] = [];
+export interface GameStateModel {
+	gameList: Game[];
+	lastPlayedGames: Game[];
+	textFilter: string;
+	selectBySlug: string;
+	providerFilter: string[];
 }
 
 @State<GameStateModel>({
@@ -60,6 +60,12 @@ export class GameState {
 	@Selector()
 	static selectTrendingGames({ gameList }: GameStateModel) {
 		return gameList.filter((game: Game) => game.tag === GameTags.TRENDING);
+	}
+
+	@Selector()
+	static selectGameProviders({ gameList }: GameStateModel) {
+		const providers = gameList?.map((game) => game.providerName);
+		return Array.from(new Set(providers));
 	}
 
 	@Action(FetchGames)
