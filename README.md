@@ -1,4 +1,4 @@
-# River Tech FE Interview
+# Casino Games
 
 ## Instructions
 
