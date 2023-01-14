@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rivertech-fe-interview": {
+    "fe-interview": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rivertech-fe-interview",
+            "outputPath": "dist/fe-interview",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rivertech-fe-interview:build"
+            "browserTarget": "fe-interview:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rivertech-fe-interview:build:production"
+              "browserTarget": "fe-interview:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rivertech-fe-interview:build"
+            "browserTarget": "fe-interview:build"
           }
         },
         "test": {
@@ -108,5 +108,5 @@
       }
     }
   },
-  "defaultProject": "rivertech-fe-interview"
+  "defaultProject": "fe-interview"
 }
